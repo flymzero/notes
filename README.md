@@ -74,5 +74,8 @@ nas: 10.0.0.6
 > openwrt > 网络 > DHCP/DNS > 自定义挟持域名 
 > 网络 > 防火墙 > 区域 > WAN > 修改 > 入站&转发(接受) > 覆盖网络 > lan&wan&wan6(勾选) 
 
+- 腾讯云DDNS解析到富强ip上
+> 可能是获取ip的域名被科学了，把对应的ip或者域名加到科学里面的不走代理里面[文件地址](https://github.com/Tencent-Cloud-Plugins/tencentcloud-openwrt-plugin-ddns/blob/master/tencentcloud_ddns/files/root/usr/sbin/tencentddns)
+
 
 
