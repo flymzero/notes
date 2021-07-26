@@ -30,7 +30,6 @@ nas: 10.0.0.6
 - U盘引导工具：windows下[Rufus](https://rufus.ie/zh/)
 - openwrt固件
     - [精品小包](https://drive.google.com/open?id=1eyIxVfyzO4nyzaT1sSr6xWf50_5YJN7g)
-    - [高大全](https://drive.google.com/drive/folders/1PsS3c0P7a4A4KY8plQg4Fla8ZI-PGBb1?usp=sharing)
 
 ## 安装
 
@@ -65,6 +64,7 @@ nas: 10.0.0.6
     - 添加开机自启动
     - 启动后，网络 > 接口(把1口设置为WAN口，其他0,2,3设置为LAN口+桥接)
     - 虚拟机和硬路由都设置静态ip好了，方便管理（不是必须）
+    - 端口映射：网络 > 防火墙 > 转发(接受) && 添加端口转发内容
 
 ## 5.常见问题
 - 虚拟机没有自启动
