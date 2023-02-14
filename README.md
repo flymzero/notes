@@ -124,6 +124,92 @@ mv /etc/config/dhcp /etc/config/dhcp.bak
 - 加载驱动程序(游览 => cd驱动器 => amd64 => win11)
 - 网络无法跳过(按SHIFT + F10，调出命令行窗口，然后输入OOBE\BYPASSNRO)
 
+## VSCODE(DOCKER:linuxserver/code-server)
+
+### 插件
+
+- Chinese
+- Material Theme
+
+### 终端
+
+```shell
+sudo apt update
+sudo apt upgrade
+
+sudo apt install zsh vim wget
+
+# 先切换为root用户再设置shell，不然设置不上
+sudo -i
+chsh -s /bin/zsh 用户名
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# 自动补全
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# ~/.zshrc
+plugins=( 
+    # other plugins...
+    zsh-autosuggestions
+)
+
+# 高亮
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+```
+
+### flutter
+
+#### Java
+
+```shell
+sudo apt install openjdk-11-jdk
+```
+
+#### Android sdk manager
+
+```shell
+# https://developer.android.com/studio/command-line/sdkmanager?hl=zh-cn
+sudo apt install unzip
+unzip commlinetools-xxxx.zip
+mv cmdline-tools latest
+mkdir -p ~/android-sdk/cmdline-tools
+mv latest ~/android-sdk/cmdline-tools/
+# .zshrc
+export ANDROID_HOME=$HOME/android-sdk
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+# sdkmanager
+sdkmanager --list #显示所有可用的 SDK 包
+sdkmanager "platform-tools" "platforms;android-33" "build-tools;33.0.0" #识别最新的安卓平台（这里是 33）并运行
+```
+
+#### Gradle
+
+```shell
+# https://gradle.org/releases/
+unzip gradle-xx.zip
+mv gradle-xx gradle
+# .zshrc
+export GRADLE_HOME=$HOME/gradle
+export PATH=$GRADLE_HOME/bin:$PATH
+
+```
+
+#### Flutter
+
+```shell
+git clone https://github.com/flutter/flutter.git -b stable
+# .zshrc
+export PUB_HOSTED_URL=https://pub.flutter-io.cn
+export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+export PATH=$PATH:$HOME/flutter/bin
+
+flutter doctor
+flutter doctor --android-licenses
+```
+
+
 ## 网心云
 
 - 直通nvme硬盘、eth1网口(静态IP,且网关为10.0.0.1)
