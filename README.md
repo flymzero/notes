@@ -129,7 +129,9 @@ mv /etc/config/dhcp /etc/config/dhcp.bak
 ### 插件
 
 - Chinese
-- Material Theme
+- Material Icon Theme
+- Code Spell Checker 单词检查
+- Indent-Rainbow 缩进颜色
 
 ### 终端
 
