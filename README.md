@@ -143,6 +143,7 @@ sudo apt install zsh vim wget
 sudo -i
 chsh -s /bin/zsh 用户名
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#VSCODE打开终端面板 => 选择默认配置文件 => zsh
 
 # 自动补全
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
