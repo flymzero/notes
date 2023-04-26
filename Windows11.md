@@ -12,7 +12,7 @@
 
 - `Telnet客户端` 调试使用
 - `适用于 Linux 的 Windows 子系统` wsl需要
-- `虚拟机平台` wsl需要
+- `虚拟机平台` wsl && wsa需要
 
 ## 防火墙
 
@@ -77,7 +77,31 @@ powercfg.exe /hibernate off
     Set ws = WScript.CreateObject("WScript.Shell")        
     ws.run "wsl -d [Linux发行版名称] -u root /etc/init.wsl", vbhide
     ```
+9. 备份恢复
+```shell
+# 查看需要迁移的WSL是否在运行
+wsl -l -v
 
+# 终止WSL运行(两条命令都可以，任选其一。)
+wsl --shutdown # 立即终止所有正在运行的分发和 WSL 2 轻型虚拟机。
+wsl -t <DistributionName> # 终止指定分发
+
+# 导出
+# e.g. wsl --export Ubuntu C:\Users\flymz\Downloads\wsl2_ubuntu.tar
+wsl --export <Distro> <FileName>
+
+# 导入
+# e.g. wsl --import Ubuntu C:\wsl\Ubuntu\ C:\Users\flymz\Downloads\wsl2_ubuntu.tar
+wsl --import <Distro> <InstallLocation> <FileName>
+```
 
 ## wsa
+
 - [wsa](https://learn.microsoft.com/zh-cn/windows/android/wsa/)
+
+1. 打开[亚马逊商店](https://aka.ms/AmazonAppstore)，自动会跳转到`Microsoft Store`
+    1. 若无法安装，则修改国家（`设置` => `时间和语言` => `语言和区域` => `国家和区域` => `美国`），再次打开链接安装
+
+2. 开启android开发人员模式
+
+3. 在`wsl`中`adb`连接`wsa` 使用`cat /etc/resolv.conf`查看`nameserver`
