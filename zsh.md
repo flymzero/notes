@@ -6,6 +6,9 @@ sudo apt install zsh
 ```
 
 ## 设置默认shell
+
+安装Oh My Zsh时，会提示设置默认sh，所以这一步可以忽略
+
 ```
 chsh -s /bin/zsh
 ```
